@@ -4,7 +4,7 @@ const createError = require("http-errors");
 const User = require("../models/People");
 const Conversation = require("../models/Conversation");
 const Message = require("../models/Message");
-const escape = require("../utilities/escape");
+const escape = require("../utilities/escape");   
 
 // get inbox page
 async function getInbox(req, res, next) {

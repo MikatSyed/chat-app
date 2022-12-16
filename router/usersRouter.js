@@ -24,7 +24,7 @@ router.get(
   "/",
   decorateHtmlResponse("Users"),
   checkLogin,
-  
+  requireRole(["admin"]),
   getUsers
 );
 
@@ -32,7 +32,7 @@ router.get(
 router.post(
   "/",
   checkLogin,
- 
+  requireRole(["admin"]),
   avatarUpload,
   addUserValidators,
   addUserValidationHandler,
@@ -40,6 +40,6 @@ router.post(
 );
 
 // remove user
-router.delete("/:id", checkLogin, removeUser);
+router.delete("/:id", checkLogin, requireRole(["admin"]), removeUser);
 
 module.exports = router;
